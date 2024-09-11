@@ -1,0 +1,3 @@
+{
+  "conteudo": "// Escreve o conteúdo em um arquivo de forma assíncrona\nfs.writeFile('exemplo.txt', 'Este é o novo conteúdo do arquivo', 'utf8', (erro) => {\n\tif (erro) {\n\t\tconsole.error('Erro ao escrever no arquivo:', erro);\n\t\treturn;\n\t}\n\tconsole.log('Conteúdo escrito com sucesso no arquivo!');\n});"
+}
