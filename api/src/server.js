@@ -20,4 +20,27 @@ servidor.get("/dados", async (_req, res) => {
   res.status(200).json({ conteudo: dados });
 });
 
+servidor.put("/dados", async (req, res) => {
+try {
+  const { conteudo } = req.body;
+
+  if (!couteudo) {
+    return res.status(400).json({message: "Conteúdo não fornecido"});
+  }
+ let dados = await fsp.readFile(caminhoArquivo, "utf8");
+
+ dados = awaot fsp.writeFile(caminhoArquivo, dados + couteudo)
+
+ res.status(200).json(dados);
+
+} catch (erro) {
+  console.error(erro);
+  res.status(500).json({message: "Algo aconteceu"});
+}
+
+
+});
+
+servidor.post("/dados")
+
 servidor.listen(3000, () => console.log("Servidor está rodando... 🔥"));
