@@ -32,15 +32,12 @@ servidor.put("/dados", async (req, res) => {
   try {
     // Valida o conteúdo de entrada
     let { conteudo } = req.body;
-    if (!conteudo || !Array.isArray(conteudo)) {
+    if (!conteudo ) {
       return res.status(400).json({ erro: "Conteúdo inválido" });
     }
 
     // Lê o conteúdo existente do arquivo de forma assíncrona
     let dados = await fsp.readFile(caminhoArquivo, "utf8");
-
-    // Adiciona o novo conteúdo ao existente com uma quebra de linha
-    dados += "\n\r" + conteudo.join("\n");
 
     // Escreve o conteúdo atualizado de volta ao arquivo de forma assíncrona
     await fsp.writeFile(caminhoArquivo, dados);
